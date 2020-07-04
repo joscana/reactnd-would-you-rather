@@ -8,7 +8,7 @@ export function handleInitialData () {
     return (dispatch) => {
         dispatch(showLoading())
         return _getUsers()
-        .then(({ users }) => {
+        .then((users) => {
             dispatch(receiveUsers(users))
             dispatch(hideLoading())
         })
