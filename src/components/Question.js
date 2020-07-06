@@ -7,7 +7,7 @@ class Question extends Component {
             <div className='question-container'>
                 <h2>Would You Rather</h2>
                 <div className='avatar-container'>
-                    <img 
+                    <img className="avatar"
                         src="https://i.pravatar.cc/100"
                         alt="Random Avatar" 
                     />
