@@ -9,6 +9,7 @@ import NewQuestion from './NewQuestion'
 import SignIn from './SignIn'
 import ViewPoll from './ViewPoll'
 import Questions from './Questions'
+import Question from './Question'
 import Nav from './Nav'
 
 class App extends Component {
@@ -21,7 +22,7 @@ class App extends Component {
       <Router>
       <div className='container'>
         <Nav />
-        <Questions />
+        <Question />
       </div>
       </Router>
     )
