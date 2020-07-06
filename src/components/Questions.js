@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import Question from './Question'
 
 class Questions extends Component {
     render() {
@@ -9,7 +10,7 @@ class Questions extends Component {
                 <ul className='questions-list'>
                     {this.props.questions.map((id) => (
                         <li key={id}>
-                            <p>{`Question ID: ${id}`}</p>
+                            <Question id={id} />
                         </li>
                     ))}
                 </ul>
