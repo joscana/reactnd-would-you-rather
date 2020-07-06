@@ -9,8 +9,8 @@ class Question extends Component {
                 <h2>Would You Rather</h2>
                 <div className='avatar-container'>
                     <img className="avatar"
-                        src="https://i.pravatar.cc/100"
-                        alt="Random Avatar" 
+                        src={this.props.user.avatarURL}
+                        alt="Random Avatar"
                     />
                     <form>
                         <label>
@@ -28,9 +28,14 @@ class Question extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    const { questions } = state
+    const { questions, users } = state
     const { id } = ownProps
-    return { question: questions[id] };
+    const question = questions[id]
+    const user = users[question.author]
+    return { 
+        question: question, 
+        user: user
+    };
 }
 
 export default connect(mapStateToProps)(Question)
