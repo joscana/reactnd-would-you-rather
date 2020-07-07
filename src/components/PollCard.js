@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-class Question extends Component {
+class PollCard extends Component {
     render() {
         return(
             <div className='question-container'>
@@ -37,4 +37,4 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
-export default connect(mapStateToProps)(Question)
+export default connect(mapStateToProps)(PollCard)
