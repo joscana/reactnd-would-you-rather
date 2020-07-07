@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, BrowserRouter, Switch } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared';
 import LoadingBar from 'react-redux-loading'
-import Homepage from './Homepage'
+import Home from './Home'
 import Leaderboard from './Leaderboard'
 import NewQuestion from './NewQuestion'
 import SignIn from './SignIn'
@@ -20,10 +20,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div className='container'>
-        <Nav />
-        <Questions />
-      </div>
+        <Fragment>
+          <Nav />
+          <Switch>
+            <Route path='/' exact component={Home}  />
+            <Route path='/add' component={NewQuestion} />
+            <Route path='/leaderboard' component={Leaderboard} />
+          </Switch>
+        </Fragment>
       </Router>
     )
   }

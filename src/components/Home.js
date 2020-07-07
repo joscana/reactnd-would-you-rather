@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import Questions from './Questions';
 import { connect } from 'react-redux';
 
 
-class NewQuestion extends Component {
+class Home extends Component {
     render() {
         return (
             <div>
-                <h3 className='center'>New Question</h3>
+                <h3 className='center'>Home</h3>
             </div>
         )
     }
 }
 
-export default connect()(NewQuestion);
+export default connect()(Home);

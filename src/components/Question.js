@@ -5,7 +5,6 @@ class Question extends Component {
     render() {
         return(
             <div className='question-container'>
-                <p>{this.props.question.author}</p>
                 <h2>Would You Rather</h2>
                 <div className='avatar-container'>
                     <img className="avatar"
