@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 class SignIn extends Component {
     render() {
         return (
-            <h3>Welcome! Please sign in.</h3>
+            <div className='signin-container'>
+            <h3>Welcome to the Would You Rather App! Please sign in to continue.</h3>
+            </div>
         )
     }
 }

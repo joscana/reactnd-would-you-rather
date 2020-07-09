@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <Nav />
+          <Nav authedUser={this.props.authedUser} />
           <Switch>
             <Route path='/' exact component={Home}  />
             <Route path='/add' component={NewQuestion} />
@@ -39,7 +39,8 @@ class App extends Component {
 function mapStateToProps ({ authedUser }) {
   console.log(authedUser);
   return {
-    loading: authedUser === null
+    loading: authedUser === null,
+    authedUser: authedUser
   }
 }
 
