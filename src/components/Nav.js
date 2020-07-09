@@ -20,6 +20,15 @@ export default function Nav () {
                         Leader Board
                     </NavLink>
                 </li>
+                <li>
+                    Hello, User
+                </li>
+                <li>
+                    <NavLink to='/login' activeClassName='active'>
+                        Logout
+                    </NavLink>
+                    
+                </li>
             </ul>
         </nav>
     )

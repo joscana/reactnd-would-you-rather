@@ -27,6 +27,7 @@ class App extends Component {
             <Route path='/' exact component={Home}  />
             <Route path='/add' component={NewQuestion} />
             <Route path='/leaderboard' component={Leaderboard} />
+            <Route path='/login' component={SignIn} />
             <Route component={Error} />
           </Switch>
         </Fragment>
