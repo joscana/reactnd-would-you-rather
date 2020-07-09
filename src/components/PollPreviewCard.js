@@ -7,8 +7,6 @@ class PollPreviewCard extends Component {
     render() {
         return (
                 <div className='question-container'>
-                <h3 className='center'>Poll Preview Card </h3>
-                <h2>Would You Rather</h2>
                 <div className='avatar-container'>
                     <img className="avatar"
                         src={this.props.user.avatarURL}
@@ -19,8 +17,6 @@ class PollPreviewCard extends Component {
                     <p>{this.props.question.optionOne.text}</p>
                     <p>or</p>
                     <p>{this.props.question.optionTwo.text}</p>
-                            
-                        
                 </div>
             </div>
             
