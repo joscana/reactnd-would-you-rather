@@ -35,4 +35,11 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+function mapStateToProps ({ authedUser }) {
+  console.log(authedUser);
+  return {
+    loading: authedUser === null
+  }
+}
+
+export default connect(mapStateToProps)(App);
