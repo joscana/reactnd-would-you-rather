@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SignInForm from './SignInForm';
 
 class SignIn extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {value: 'coconut'};
+    
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('You selected: ' + this.state.value);
+        event.preventDefault();
+    }
+
     render() {
         return (
             <div className='signin-container'>
@@ -11,12 +29,17 @@ class SignIn extends Component {
                 </div>
                 <div className='signin-form'>
                     <h1>Sign In</h1>
-                    <select>
-                        {this.props.users.map((id) => (
-                            <option value={id}>{id}</option>
-                        ))}
-                        <option value=''></option>
-                    </select>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            Select a user:
+                            <select value={this.state.value} onChange={this.handleChange}>
+                                {this.props.users.map((id) => (
+                                <option value={id}>{id}</option>
+                                ))}
+                            </select>
+                        </label>
+                        <input type="submit" value="Submit" />
+                    </form>
                 </div>
             </div>
         )
