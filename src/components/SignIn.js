@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SignInForm from './SignInForm';
+import { setAuthedUser } from '../actions/authedUser';
 
 class SignIn extends Component {
     constructor(props) {
@@ -16,8 +17,8 @@ class SignIn extends Component {
     }
 
     handleSubmit(event) {
-        alert('You selected: ' + this.state.value);
         event.preventDefault();
+        this.props.dispatch(setAuthedUser(this.state.value));
     }
 
     render() {
