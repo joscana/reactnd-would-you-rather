@@ -12,6 +12,7 @@ import PollCard from './PollCard'
 import PollPreviewCard from './PollPreviewCard'
 import Error from './Error'
 import Nav from './Nav'
+import SignOut from './SignOut';
 
 class App extends Component {
   componentDidMount() {
@@ -28,6 +29,7 @@ class App extends Component {
             <Route path='/add' component={NewQuestion} />
             <Route path='/leaderboard' component={Leaderboard} />
             <Route path='/login' component={SignIn} />
+            <Route path='/logout' component={SignOut} />
             <Route component={Error} />
           </Switch>
         </Fragment>

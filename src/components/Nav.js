@@ -24,7 +24,7 @@ export default function Nav (props) {
                     Hello, {props.authedUser}
                 </li>
                 <li>
-                    <NavLink to='/login' activeClassName='active'>
+                    <NavLink to='/logout' activeClassName='active'>
                         Logout
                     </NavLink>
                     
