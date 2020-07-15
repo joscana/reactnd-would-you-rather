@@ -41,7 +41,7 @@ class SignIn extends Component {
                             <select value={this.state.value} onChange={this.handleChange}>
                                 <option value={null}>Select a user</option>
                                 {this.props.users.map((id) => (
-                                <option value={id}>{id}</option>
+                                <option value={id} key={id}>{id}</option>
                                 ))}
                             </select>
                         </label>
