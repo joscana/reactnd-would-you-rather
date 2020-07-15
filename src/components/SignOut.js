@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser';
+import { Redirect } from 'react-router-dom'
 
 class SignOut extends Component {
     componentDidMount() {
@@ -9,7 +10,10 @@ class SignOut extends Component {
 
     render() {
         return(
-            <h1>Thank you for signing out. You will be redirected to our sign in page shortly.</h1>
+            <Fragment>
+                <h1>Thank you for signing out. You will be redirected to our sign in page shortly.</h1>
+                <Redirect to='/login'/>
+            </Fragment>
         )
     }
 }
