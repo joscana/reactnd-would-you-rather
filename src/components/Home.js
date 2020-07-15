@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import PollCard from './PollCard'
-import PollPreviewCard from './PollPreviewCard'
+import PollCard from './PollCard';
+import PollPreviewCard from './PollPreviewCard';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 
 class Home extends Component {
+
     render() {
+        const redirectToLogin =  (this.props.authedUser === null) ? <Redirect to='/login'/> : null
         return (
             <div>
+                { redirectToLogin }
                 <div>
                 <h3 className='center'>Questions</h3>
                 <ul className='questions-list'>
@@ -24,8 +28,10 @@ class Home extends Component {
 }
 
 function mapStateToProps(state) {
-    const { questions } = state
-    return { questions: Object.keys(questions) };
+    const { questions, authedUser } = state
+    return { questions: Object.keys(questions),
+             authedUser: authedUser,
+            };
 }
 
 

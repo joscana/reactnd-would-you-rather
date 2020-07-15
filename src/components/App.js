@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, BrowserRouter, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared';
 import LoadingBar from 'react-redux-loading'
 import Home from './Home'
@@ -19,19 +19,20 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }
   
-  render() {
+  render() {   
     return (
       <Router>
         <Fragment>
+          <LoadingBar />
           <Nav authedUser={this.props.authedUser} />
-          <Switch>
-            <Route path='/' exact component={Home}  />
-            <Route path='/add' component={NewQuestion} />
-            <Route path='/leaderboard' component={Leaderboard} />
-            <Route path='/login' component={SignIn} />
-            <Route path='/logout' component={SignOut} />
-            <Route component={Error} />
-          </Switch>
+            <Switch>
+              <Route path='/' exact component={Home}  />
+              <Route path='/add' component={NewQuestion} />
+              <Route path='/leaderboard' component={Leaderboard} />
+              <Route path='/login' component={SignIn} />
+              <Route path='/logout' component={SignOut} />
+              <Route component={Error} />
+            </Switch>
         </Fragment>
       </Router>
     )
@@ -41,7 +42,6 @@ class App extends Component {
 function mapStateToProps ({ authedUser }) {
   console.log(authedUser);
   return {
-    loading: authedUser === null,
     authedUser: authedUser
   }
 }
