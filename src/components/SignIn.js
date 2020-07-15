@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser';
+import { Redirect } from 'react-router-dom';
 
 class SignIn extends Component {
     constructor(props) {
@@ -25,8 +26,10 @@ class SignIn extends Component {
     }
 
     render() {
+        const redirectToHome =  (this.props.authedUser !== null) ? <Redirect to='/'/> : null
         return (
             <div className='signin-container'>
+                 { redirectToHome }
                 <div className='welcome'>
                 <h2>Welcome to the Would You Rather App!</h2>
                 <h4>Please sign in to continue.</h4> 
@@ -51,8 +54,9 @@ class SignIn extends Component {
 }
 
 function mapStateToProps(state) {
-    const { users } = state
-    return { users: Object.keys(users) };
+    const { users, authedUser } = state
+    return { users: Object.keys(users),
+             authedUser: authedUser };
 }
 
 export default connect(mapStateToProps)(SignIn)
