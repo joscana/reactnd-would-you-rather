@@ -7,7 +7,11 @@ import { Redirect } from 'react-router-dom';
 
 class Home extends Component {
 
-    state = {}
+    state = {
+        showUnanswered: true,
+        answered: [],
+        unanswered: [],
+    }
 
     componentDidMount() {
         if (this.props.authedUser === null) {
@@ -37,31 +41,40 @@ class Home extends Component {
 
     }
 
+    toggle = () => {
+        (this.state.showUnanswered ? this.setState({showUnanswered: false}) : this.setState({showUnanswered: true}));
+        console.log(this.state.showUnanswered)
+    }
+    
+
     render() {
 
         const redirectToLogin =  (this.props.authedUser === null) ? <Redirect to='/login'/> : null
+        
+
+        const questionstoShow = (this.state.showUnanswered) ? this.state.unanswered : this.state.answered;
+        
         return (
             <div>
                 { redirectToLogin }
                 <div className='questions-container'>
-                    <h3 className='center'>Questions</h3>
+                    <button type="button" className="center-button" onClick={this.toggle}>Unanswered</button>
+                    <button type="button" className="center-button" onClick={this.toggle}>Answered</button>
+
+
                     <ul className='questions-list'>
-                        {this.props.questions.map((id) => (
+                        {questionstoShow.map((id) => (
                             <li key={id}>
                                 <PollPreviewCard id={id} />
                             </li>
                         ))}
-                    </ul>
-                    <ul className='answered-questions'>
-                        <li>
-
-                        </li>
                     </ul>
                 </div>
             </div>
         )
     }
 }
+
 
 function mapStateToProps(state) {
     const { questions, authedUser, users } = state

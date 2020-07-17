@@ -75,3 +75,7 @@ li {
   background-color: #6ec6ff;
 }
 
+.center-button {
+  align-self: flex-start;
+}
+
