@@ -12,14 +12,14 @@ function addQuestion (question) {
     }
 }
 
-export function handleAddQuestion (text, optionOne, optionTwo) {
-    return (dispatch, getState) => {
+export function handleAddQuestion (optionOneText, optionTwoText, author) {
+    return (dispatch) => {
         dispatch(showLoading())
 
         return _saveQuestion({
-            text,
-            optionOne,
-            optionTwo
+            optionOneText,
+            optionTwoText,
+            author
         })
         .then((question) => dispatch(addQuestion(question)))
         .then(() => dispatch(hideLoading()))

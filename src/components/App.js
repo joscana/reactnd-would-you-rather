@@ -18,20 +18,22 @@ class App extends Component {
   
   render() {   
     return (
-      <Router>
-        <Fragment>
-          <LoadingBar />
-          <Nav authedUser={this.props.authedUser} />
-            <Switch>
-              <Route path='/' exact component={Home}  />
-              <Route path='/add' component={NewQuestion} />
-              <Route path='/leaderboard' component={Leaderboard} />
-              <Route path='/login' component={SignIn} />
-              <Route path='/logout' component={SignOut} />
-              <Route component={Error} />
-            </Switch>
-        </Fragment>
-      </Router>
+      <div >
+        <Router>
+          <Fragment>
+            <LoadingBar />
+            <Nav authedUser={this.props.authedUser} />
+              <Switch>
+                <Route path='/' exact component={Home}  />
+                <Route path='/add' component={NewQuestion} />
+                <Route path='/leaderboard' component={Leaderboard} />
+                <Route path='/login' component={SignIn} />
+                <Route path='/logout' component={SignOut} />
+                <Route component={Error} />
+              </Switch>
+          </Fragment>
+        </Router>
+      </div>
     )
   }
 }

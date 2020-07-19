@@ -9,7 +9,19 @@ class NewQuestion extends Component {
         return (
             <div>
                 { redirectToLogin }
-                <h3 className='center'>New Question</h3>
+                <div className="new-question-form">
+                <h3 className='center'>Create New Question</h3>
+                <form>
+                    <label>
+                        Complete the question:
+                        <p>Would You Rather?</p>
+                        <input type="text" name='option-1' placeholder="Option One"/>
+                        <p>OR</p>
+                        <input type="text" name="option-2" placeholder="Option Two"/>
+                    </label>
+                    <input type="submit" value="Submit" className='button' />
+                </form>
+                </div>
             </div>
         )
     }
