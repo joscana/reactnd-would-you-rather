@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { useParams } from "react-router-dom";
 
 class PollCard extends Component {
     render() {
@@ -27,8 +28,8 @@ class PollCard extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
+    const id = ownProps.match.params.id
     const { questions, users } = state
-    const { id } = ownProps
     const question = questions[id]
     const user = users[question.author]
     return { 

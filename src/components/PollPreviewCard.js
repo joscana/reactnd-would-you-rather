@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-
+import { Redirect } from 'react-router-dom';
 
 class PollPreviewCard extends Component {
+    state = {
+        goToPoll: false
+    }
+
+    handleSubmit = () => {
+        this.setState({goToPoll: true});
+    }
+    
     render() {
+        const redirectToPollCard = (this.state.goToPoll) ? <Redirect to={`/questions/${this.props.id}`}/> : null
+
         return (
-                <div className='question-container'>
-                <div className='avatar-container'>
+            <div className='question-container'>
+                {redirectToPollCard}
+                <div>
                     <img className="avatar"
                         src={this.props.user.avatarURL}
                         alt="Random Avatar"
@@ -17,6 +27,7 @@ class PollPreviewCard extends Component {
                     <p>{this.props.question.optionOne.text}</p>
                     <p>or</p>
                     <p>{this.props.question.optionTwo.text}</p>
+                    <button type="button" onClick={this.handleSubmit}>View Poll</button>
                 </div>
             </div>
             
