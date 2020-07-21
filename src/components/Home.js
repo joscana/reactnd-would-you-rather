@@ -51,7 +51,7 @@ class Home extends Component {
 function mapStateToProps(state) {
     const { questions, authedUser, users } = state
     const questionList = Object.values(questions)
-    //sort questions by timestamp
+
     questionList.sort(function(a, b) {
         return b.timestamp - a.timestamp;
     })
@@ -63,7 +63,7 @@ function mapStateToProps(state) {
 
     for(let i = 0; i < questionList.length; i++) {
         if(answeredKeys.includes(questionList[i].id)) {
-            answeredKeys.push(questionList[i].id);
+            answered.push(questionList[i].id);
         }
         else {
             unanswered.push(questionList[i].id);
