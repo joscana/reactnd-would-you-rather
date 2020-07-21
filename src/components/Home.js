@@ -8,34 +8,7 @@ class Home extends Component {
 
     state = {
         showUnanswered: true,
-        answered: [],
-        unanswered: [],
     }
-
-    // componentDidMount() {
-    //     if (this.props.authedUser === null) {
-    //         return;
-    //     }
-
-    //     const answered = Object.keys(this.props.users[this.props.authedUser].answers);
-        
-    //     let unanswered = [];
-
-    //     for(let i = 0; i < this.props.questions.length; i++) {
-    //         if(answered.includes(this.props.questions[i])) {
-    //             continue;
-    //         }
-    //         else {
-    //             unanswered.push(this.props.questions[i])
-    //         }
-    //     }
-        
-
-    //     this.setState({
-    //         answered: answered,
-    //         unanswered: unanswered,
-    //     })
-    // }
 
     showAnsweredQuestions = () => {
         if(this.state.showUnanswered === true) {
@@ -51,21 +24,9 @@ class Home extends Component {
     
 
     render() {
-        const answered = (this.props.authedUser != null) ? Object.keys(this.props.users[this.props.authedUser].answers) : [];
         
-        let unanswered = [];
-
-        for(let i = 0; i < this.props.questions.length; i++) {
-            if(answered.includes(this.props.questions[i])) {
-                continue;
-            }
-            else {
-                unanswered.push(this.props.questions[i])
-            }
-        }
-
         const redirectToLogin =  (this.props.authedUser === null) ? <Redirect to='/login'/> : null
-        const questionstoShow = (this.state.showUnanswered) ? unanswered : answered;
+        const questionstoShow = (this.state.showUnanswered) ? this.props.unanswered : this.props.answered;
         
         return (
             <div>
@@ -89,7 +50,29 @@ class Home extends Component {
 
 function mapStateToProps(state) {
     const { questions, authedUser, users } = state
-    return { questions: Object.keys(questions),
+    const questionList = Object.values(questions)
+    //sort questions by timestamp
+    questionList.sort(function(a, b) {
+        return b.timestamp - a.timestamp;
+    })
+
+    const answeredKeys = (authedUser != null) ? Object.keys(users[authedUser].answers) : [];
+    
+    let answered = [];
+    let unanswered = [];
+
+    for(let i = 0; i < questionList.length; i++) {
+        if(answeredKeys.includes(questionList[i].id)) {
+            answeredKeys.push(questionList[i].id);
+        }
+        else {
+            unanswered.push(questionList[i].id);
+        }
+    }
+
+    return { 
+             answered: answered,
+             unanswered: unanswered,
              authedUser: authedUser,
              users: users,
             };
