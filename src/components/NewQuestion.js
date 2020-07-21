@@ -9,11 +9,13 @@ class NewQuestion extends Component {
     state = {
         optionOne: '',
         optionTwo: '',
+        saved: false
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.dispatch(handleAddQuestion(this.state.optionOne, this.state.optionTwo, this.props.authedUser))
+        this.props.dispatch(handleAddQuestion(this.state.optionOne, this.state.optionTwo, this.props.authedUser));
+        this.setState({saved: true})
     }
 
     optionOneChange = (event) => {
@@ -28,9 +30,12 @@ class NewQuestion extends Component {
 
     render() {
         const redirectToLogin =  (this.props.authedUser === null) ? <Redirect to='/login'/> : null
+        const redirectToHome =  (this.state.saved) ? <Redirect to='/'/> : null
+
         return (
             <div>
                 { redirectToLogin }
+                { redirectToHome }
                 <div className="new-question-form">
                 <h3 className='center'>Create New Question</h3>
                 <form onSubmit={this.handleSubmit}>

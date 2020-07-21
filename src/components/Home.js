@@ -12,30 +12,30 @@ class Home extends Component {
         unanswered: [],
     }
 
-    componentDidMount() {
-        if (this.props.authedUser === null) {
-            return;
-        }
+    // componentDidMount() {
+    //     if (this.props.authedUser === null) {
+    //         return;
+    //     }
 
-        const answered = Object.keys(this.props.users[this.props.authedUser].answers);
+    //     const answered = Object.keys(this.props.users[this.props.authedUser].answers);
         
-        let unanswered = [];
+    //     let unanswered = [];
 
-        for(let i = 0; i < this.props.questions.length; i++) {
-            if(answered.includes(this.props.questions[i])) {
-                continue;
-            }
-            else {
-                unanswered.push(this.props.questions[i])
-            }
-        }
+    //     for(let i = 0; i < this.props.questions.length; i++) {
+    //         if(answered.includes(this.props.questions[i])) {
+    //             continue;
+    //         }
+    //         else {
+    //             unanswered.push(this.props.questions[i])
+    //         }
+    //     }
         
 
-        this.setState({
-            answered: answered,
-            unanswered: unanswered,
-        })
-    }
+    //     this.setState({
+    //         answered: answered,
+    //         unanswered: unanswered,
+    //     })
+    // }
 
     showAnsweredQuestions = () => {
         if(this.state.showUnanswered === true) {
@@ -51,9 +51,21 @@ class Home extends Component {
     
 
     render() {
+        const answered = (this.props.authedUser != null) ? Object.keys(this.props.users[this.props.authedUser].answers) : [];
+        
+        let unanswered = [];
+
+        for(let i = 0; i < this.props.questions.length; i++) {
+            if(answered.includes(this.props.questions[i])) {
+                continue;
+            }
+            else {
+                unanswered.push(this.props.questions[i])
+            }
+        }
 
         const redirectToLogin =  (this.props.authedUser === null) ? <Redirect to='/login'/> : null
-        const questionstoShow = (this.state.showUnanswered) ? this.state.unanswered : this.state.answered;
+        const questionstoShow = (this.state.showUnanswered) ? unanswered : answered;
         
         return (
             <div>
