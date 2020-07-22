@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from "react-router-dom";
+import { setAuthedUser } from '../actions/authedUser';
 
 class PollCard extends Component {
     handleChange = (event) => {
@@ -14,16 +15,25 @@ class PollCard extends Component {
             return;
         }
         console.log(this.state.value)
+
     }
     
     render() {
         console.log(`Answered: ${this.props.answered}`)
-        return(
+
+        const answeredView = (
+            <div className="answered-poll-card">
+                <h3>Asked by ______ </h3>
+                <h1>Results:</h1>
+            </div>
+        );
+
+        const unansweredView = (
             <div className='question-container'>
                 <h2>Would You Rather</h2>
                 <div className='avatar-container'>
                     <img className="avatar"
-                        src={this.props.user.avatarURL}
+                        src={this.props.author.avatarURL}
                         alt="Random Avatar"
                     />
                     <form onSubmit={this.handleSubmit}>
@@ -38,7 +48,9 @@ class PollCard extends Component {
                     </form>
                 </div>
             </div>
-        )
+        );
+
+        return this.props.answered ? answeredView : unansweredView
     }
 }
 
@@ -46,13 +58,15 @@ function mapStateToProps(state, ownProps) {
     const id = ownProps.match.params.id
     const { questions, users, authedUser } = state
     const question = questions[id]
-    const user = users[authedUser]
-    const answeredKeys = Object.keys(user.answers)
+    const loggedInUser = users[authedUser]
+    const author = users[question.author]
+    const answeredKeys = Object.keys(loggedInUser.answers)
     const answered = answeredKeys.includes(id)
     return { 
         question: question, 
-        user: user,
+        loggedInUser: loggedInUser,
         answered: answered,
+        author: author
     };
 }
 

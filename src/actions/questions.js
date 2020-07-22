@@ -4,7 +4,7 @@ import { addQuestionToUser } from './users'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
-export const SELECT_ANSWER = 'SELECT_ANSWER'
+export const SAVE_ANSWER = 'SAVE_ANSWER'
 
 function addQuestion (question) {
     return {
