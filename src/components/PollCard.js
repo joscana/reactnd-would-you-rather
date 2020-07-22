@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { useParams } from "react-router-dom";
-import { setAuthedUser } from '../actions/authedUser';
+import { handleSaveAnswer } from '../actions/questions';
 
 class PollCard extends Component {
     handleChange = (event) => {
@@ -15,7 +14,7 @@ class PollCard extends Component {
             return;
         }
         console.log(this.state.value)
-
+        this.props.dispatch(handleSaveAnswer(this.props.loggedInUser.id, this.props.question.id, this.state.value));
     }
     
     render() {
