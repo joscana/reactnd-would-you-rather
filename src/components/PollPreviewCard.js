@@ -27,7 +27,7 @@ class PollPreviewCard extends Component {
                     <p>{this.props.question.optionOne.text}</p>
                     <p>or</p>
                     <p>{this.props.question.optionTwo.text}</p>
-                    <button type="button" onClick={this.handleSubmit}>View Poll</button>
+                    <button type="button" className='button' onClick={this.handleSubmit}>View Poll</button>
                 </div>
             </div>
             

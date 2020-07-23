@@ -20,21 +20,38 @@ class PollCard extends Component {
     render() {
         console.log(`Answered: ${this.props.answered}`)
 
+
+
         const answeredView = (
             <div className="answered-poll-card">
-                <h3>Asked by ______ </h3>
+                <div className='avatar-container'>
+                 <img className="avatar"
+                        src={this.props.author.avatarURL}
+                        alt="Random Avatar"
+                    />
+                </div>
+                <h3 className='center'>Asked by: {this.props.question.author}</h3>
                 <h1>Results:</h1>
+                <div className='results'>
+                    <div className='option-card'>
+                        <p>{this.props.question.optionOne.text}</p>
+                    </div>
+                    <div className='option-card'>
+                        <p>{this.props.question.optionTwo.text}</p>
+                    </div>
+                </div>
             </div>
         );
 
         const unansweredView = (
             <div className='question-container'>
-                <h2>Would You Rather</h2>
                 <div className='avatar-container'>
                     <img className="avatar"
                         src={this.props.author.avatarURL}
                         alt="Random Avatar"
                     />
+                    <h3 className='center'>{this.props.question.author} asks: </h3>
+                    <p>Would You Rather...</p>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             <select onChange={this.handleChange}>
@@ -43,7 +60,7 @@ class PollCard extends Component {
                                 <option value='optionTwo'>{this.props.question.optionTwo.text}</option>
                             </select>
                         </label>
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="Submit" className='button' />
                     </form>
                 </div>
             </div>

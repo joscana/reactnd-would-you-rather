@@ -45,7 +45,7 @@ class SignIn extends Component {
                                 ))}
                             </select>
                         </label>
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="Submit" className='button' />
                     </form>
                 </div>
             </div>
