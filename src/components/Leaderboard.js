@@ -11,7 +11,13 @@ class Leaderboard extends Component {
                 { redirectToLogin }
                 <h3 className='center'>Leaderboard</h3>
                 <div className='leaderboard'>
-                    <UserCard />
+                    <ul className='leaderboard-list'>
+                        {this.props.userKeys.map((id) => (
+                            <li key={id}>
+                                <UserCard id={id}/>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         )
@@ -19,8 +25,13 @@ class Leaderboard extends Component {
 }
 
 function mapStateToProps(state) {
-    const { authedUser } = state
-    return { authedUser: authedUser };
+    const { authedUser, users } = state
+    const userKeys = Object.keys(users)
+    return { 
+        authedUser: authedUser,
+        users: users,
+        userKeys: userKeys,
+    };
 }
 
 export default connect(mapStateToProps)(Leaderboard);
