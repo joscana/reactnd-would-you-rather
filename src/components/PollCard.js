@@ -20,6 +20,10 @@ class PollCard extends Component {
     render() {
         console.log(`Answered: ${this.props.answered}`)
 
+        const optionOneVotes = this.props.question.optionOne.votes.length;
+        const optionTwoVotes = this.props.question.optionTwo.votes.length;
+
+        const total = optionOneVotes + optionTwoVotes;
 
 
         const answeredView = (
@@ -35,9 +39,11 @@ class PollCard extends Component {
                 <div className='results'>
                     <div className='option-card'>
                         <p>{this.props.question.optionOne.text}</p>
+                        <p>{optionOneVotes} out of {total} votes</p>
                     </div>
                     <div className='option-card'>
                         <p>{this.props.question.optionTwo.text}</p>
+                        <p>{optionTwoVotes} out of {total} votes </p>
                     </div>
                 </div>
             </div>
