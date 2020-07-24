@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useRef, useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import { handleSaveAnswer } from '../actions/questions';
+import { Redirect } from 'react-router-dom';
 
 class PollCard extends Component {
     handleChange = (event) => {
@@ -18,13 +19,22 @@ class PollCard extends Component {
     }
     
     render() {
-        console.log(`Answered: ${this.props.answered}`)
+        if (!this.props.loggedInUser) {
+            return (<Redirect to='/login'/>)
+        }
+
+        if (!this.props.question) {
+            return (<Redirect to='/error'/>)
+        }
+
 
         const optionOneVotes = this.props.question.optionOne.votes.length;
         const optionTwoVotes = this.props.question.optionTwo.votes.length;
 
         const total = optionOneVotes + optionTwoVotes;
 
+        const optionOneRatio = optionOneVotes/total;
+        const optionTwoRatio = optionTwoVotes/total;        
 
         const answeredView = (
             <div className="answered-poll-card">
@@ -40,10 +50,12 @@ class PollCard extends Component {
                     <div className='option-card'>
                         <p>{this.props.question.optionOne.text}</p>
                         <p>{optionOneVotes} out of {total} votes</p>
+                        <FillBar percentage={optionOneRatio} />
                     </div>
                     <div className='option-card'>
                         <p>{this.props.question.optionTwo.text}</p>
                         <p>{optionTwoVotes} out of {total} votes </p>
+                        <FillBar percentage={optionTwoRatio} />
                     </div>
                 </div>
             </div>
@@ -76,13 +88,36 @@ class PollCard extends Component {
     }
 }
 
+
+const FillBar = (props) => {
+    const { percentage } = props;
+
+    const outerRef = useRef();
+    const innerRef = useRef();
+
+    useLayoutEffect ( () => {
+        const outerWidth = outerRef.current.offsetWidth;
+        const innerWidth = outerWidth * percentage;
+        innerRef.current.style.width = innerWidth + "px";
+    }, [innerRef]);
+
+    return(
+        <div className='outer-bar' ref={outerRef}>
+            <div className='inner-bar' ref={innerRef}>
+            
+            </div>
+            <p>{`${percentage*100}%`}</p>
+        </div>
+    )
+}
+
 function mapStateToProps(state, ownProps) {
     const id = ownProps.match.params.id
     const { questions, users, authedUser } = state
     const question = questions[id]
-    const loggedInUser = users[authedUser]
-    const author = users[question.author]
-    const answeredKeys = Object.keys(loggedInUser.answers)
+    const loggedInUser = (authedUser) ? users[authedUser] : null
+    const author = (question) ? users[question.author] : null
+    const answeredKeys = (loggedInUser) ? Object.keys(loggedInUser.answers) : []
     const answered = answeredKeys.includes(id)
     return { 
         question: question, 

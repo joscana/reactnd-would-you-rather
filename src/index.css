@@ -123,3 +123,15 @@ li {
   display: inline-block;
   font-size: 16px;
 }
+
+.inner-bar {
+  background-color: #FF00FF;
+  height: 100%;
+  float: left;
+}
+
+.outer-bar {
+  background-color: #F0F0F0;
+  height: 50px;
+  width: 200px;
+}
