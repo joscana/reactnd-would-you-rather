@@ -12,9 +12,9 @@ class Leaderboard extends Component {
                 <h3 className='center'>Leaderboard</h3>
                 <div className='leaderboard'>
                     <ul className='leaderboard-list'>
-                        {this.props.userKeys.map((id) => (
-                            <li key={id}>
-                                <UserCard id={id}/>
+                        {this.props.userList.map((user) => (
+                            <li key={user.id}>
+                                <UserCard id={user.id}/>
                             </li>
                         ))}
                     </ul>
@@ -26,11 +26,19 @@ class Leaderboard extends Component {
 
 function mapStateToProps(state) {
     const { authedUser, users } = state
-    const userKeys = Object.keys(users)
+    const userList = Object.values(users)
+
+    userList.sort(function(a, b) {
+        const aScore = Object.keys(a.answers).length + Object.keys(a.questions).length;
+        const bScore = Object.keys(b.answers).length + Object.keys(b.questions).length;
+
+        return bScore - aScore;
+    })
+
+
     return { 
         authedUser: authedUser,
-        users: users,
-        userKeys: userKeys,
+        userList: userList,
     };
 }
 
