@@ -18,22 +18,26 @@ class PollPreviewCard extends Component {
             <div>
                 {redirectToPollCard}
                 <div className='question-container'>
-                    <div className='avatar-container'>
-                        <img className="avatar"
-                            src={this.props.user.avatarURL}
-                            alt="Random Avatar"
-                        />
+                    <div className='user-avatar-column'>
+                        <div className='card-title-container'>
+                            <h3>{this.props.question.author} asks: </h3>
+                        </div>
+                        <div className='avatar-container'>
+                            <img className="avatar"
+                                src={this.props.user.avatarURL}
+                                alt="Random Avatar"
+                            />
+                        </div>
                     </div>
-                    <div className='card-title-container'>
-                        <h3>{this.props.question.author} asks: </h3>
+                    <div className='preview-button-column'>
+                        <div className="question-preview-container">
+                            <h3>Would you rather</h3>
+                            <p>{this.props.question.optionOne.text}</p>
+                            <p>or</p>
+                            <p>{this.props.question.optionTwo.text}</p>
+                        </div>
+                        <button type="button" className='button' onClick={this.handleSubmit}>View Poll</button>
                     </div>
-                    <div className="question-preview-container">
-                        <p>Would you rather</p>
-                        <p>{this.props.question.optionOne.text}</p>
-                        <p>or</p>
-                        <p>{this.props.question.optionTwo.text}</p>
-                    </div>
-                    <button type="button" className='button' onClick={this.handleSubmit}>View Poll</button>
                 </div>
             </div>
             
