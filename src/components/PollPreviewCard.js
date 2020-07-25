@@ -17,7 +17,7 @@ class PollPreviewCard extends Component {
         return (
             <div>
                 {redirectToPollCard}
-                <div className='question-container'>
+                <div className='poll-preview-card-container'>
                     <div className='user-avatar-column'>
                         <div className='card-title-container'>
                             <h3>{this.props.question.author} asks: </h3>

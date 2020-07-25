@@ -53,6 +53,21 @@ li {
   align-self: center;
 }
 
+.submit-button {
+  height: 50px;
+  width: 100px;
+  background-color: #7200ca;
+  border: none;
+  color: whitesmoke;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.button-container {
+  padding: 10px;
+}
+
 
 .questions-container {
   width: 100%;
@@ -67,7 +82,7 @@ li {
 }
 
 
-.question-container {
+.poll-preview-card-container {
   width: 100%;
   padding: 5px;
   display: flex;
@@ -76,6 +91,19 @@ li {
   border: 3px solid #ffffff;
   border-radius: 3px;
   cursor: pointer;
+  background-color: #ffffff55;
+}
+
+.poll-card-container {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 3px solid #ffffff;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #ffffff55;
 }
 
 
@@ -137,10 +165,12 @@ li {
   padding: 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 auto;
   border: 3px solid #ffffff;
   border-radius: 3px;
   cursor: pointer;
+  background-color: #ffffff55;
 }
 
 

@@ -37,17 +37,19 @@ class NewQuestion extends Component {
                 { redirectToLogin }
                 { redirectToHome }
                 <div className="new-question-form">
-                <h3 className='center'>Create New Question</h3>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Complete the question:
-                        <p>Would You Rather?</p>
-                        <input type="text" name='option-1' placeholder="Option One" onChange={this.optionOneChange}/>
-                        <p>OR</p>
-                        <input type="text" name="option-2" placeholder="Option Two" onChange={this.optionTwoChange}/>
-                    </label>
-                    <input type="submit" value="Submit" className="button"/>
-                </form>
+                    <h3 className='center'>Create New Question</h3>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            Complete the question:
+                            <p>Would You Rather...</p>
+                            <input type="text" name='option-1' placeholder="Enter Option One Text Here" onChange={this.optionOneChange}/>
+                            <p className='center'>OR</p>
+                            <input type="text" name="option-2" placeholder="Enter Option Two Text Here" onChange={this.optionTwoChange}/>
+                        </label>
+                        <div className='button-container'>
+                            <input type="submit" value="Submit" className="submit-button"/>
+                        </div>
+                    </form>
                 </div>
             </div>
         )

@@ -62,7 +62,7 @@ class PollCard extends Component {
         );
 
         const unansweredView = (
-            <div className='question-container'>
+            <div className='poll-card-container'>
                     <img className="avatar"
                         src={this.props.author.avatarURL}
                         alt="Random Avatar"
