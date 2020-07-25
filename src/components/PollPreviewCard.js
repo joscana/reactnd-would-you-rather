@@ -15,18 +15,24 @@ class PollPreviewCard extends Component {
         const redirectToPollCard = (this.state.goToPoll) ? <Redirect to={`/questions/${this.props.id}`}/> : null
 
         return (
-            <div className='question-container'>
+            <div>
                 {redirectToPollCard}
-                <div>
-                    <img className="avatar"
-                        src={this.props.user.avatarURL}
-                        alt="Random Avatar"
-                    />
-                    <h3 className='center'>{this.props.question.author} asks: </h3>
-                    <p>Would you rather</p>
-                    <p>{this.props.question.optionOne.text}</p>
-                    <p>or</p>
-                    <p>{this.props.question.optionTwo.text}</p>
+                <div className='question-container'>
+                    <div className='avatar-container'>
+                        <img className="avatar"
+                            src={this.props.user.avatarURL}
+                            alt="Random Avatar"
+                        />
+                    </div>
+                    <div className='card-title-container'>
+                        <h3>{this.props.question.author} asks: </h3>
+                    </div>
+                    <div className="question-preview-container">
+                        <p>Would you rather</p>
+                        <p>{this.props.question.optionOne.text}</p>
+                        <p>or</p>
+                        <p>{this.props.question.optionTwo.text}</p>
+                    </div>
                     <button type="button" className='button' onClick={this.handleSubmit}>View Poll</button>
                 </div>
             </div>
