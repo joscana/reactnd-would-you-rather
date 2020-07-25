@@ -27,7 +27,6 @@ export default function Nav (props) {
                     <NavLink to='/logout' activeClassName='active'>
                         Logout
                     </NavLink>
-                    
                 </li>
             </ul>
         </nav>

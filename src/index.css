@@ -66,6 +66,8 @@ li {
 
 .button-container {
   padding: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -96,7 +98,9 @@ li {
 
 .poll-card-container {
   width: 100%;
+  max-width: 590px;
   padding: 5px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -123,6 +127,11 @@ li {
 
 
 .preview-button-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.question-button-column {
   display: flex;
   flex-direction: column;
 }

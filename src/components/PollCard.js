@@ -63,22 +63,32 @@ class PollCard extends Component {
 
         const unansweredView = (
             <div className='poll-card-container'>
+                <div className='user-avatar-column'>
+                    <h3 className='center'>{this.props.question.author} asks: </h3>
                     <img className="avatar"
                         src={this.props.author.avatarURL}
                         alt="Random Avatar"
                     />
-                    <h3 className='center'>{this.props.question.author} asks: </h3>
+                </div>
+                <div className='question-button-column'>
                     <p>Would You Rather...</p>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>
-                            <select onChange={this.handleChange}>
+                    <form className='question-button-column' onSubmit={this.handleSubmit} onChange={this.handleChange}>
+                        <input type='radio' id='optionOne' name='option' value='optionOne'></input>
+                        <label for='optionOne'>{this.props.question.optionOne.text}</label>
+                        <input type='radio' id='optionTwo' name='option' value='optionTwo'></input>
+                        <label for='optionTwo'>{this.props.question.optionTwo.text}</label>
+                        
+                            {/* <select onChange={this.handleChange}>
                                 <option value={null}>Select an answer</option>
                                 <option value='optionOne'>{this.props.question.optionOne.text}</option>
                                 <option value='optionTwo'>{this.props.question.optionTwo.text}</option>
-                            </select>
-                        </label>
-                        <input type="submit" value="Submit" className='button' />
+                            </select> */}
+                        
+                        <div className='button-container'>
+                            <input type="submit" value="Submit" className='submit-button' />
+                        </div>
                     </form>
+                </div>
             </div>
         );
 
