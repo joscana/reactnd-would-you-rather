@@ -4,13 +4,16 @@ import { handleSaveAnswer } from '../actions/questions';
 import { Redirect } from 'react-router-dom';
 
 class PollCard extends Component {
+
+    state = {}
+
     handleChange = (event) => {
         this.setState({value: event.target.value});
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if(this.state.value === null) {
+        if(!this.state.value) {
             alert('Please select an answer to vote!');
             return;
         }

@@ -190,8 +190,21 @@ li {
   max-width: 590px;
   padding: 10px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-left: 20px;
+}
+
+.user-score-container {
+  display: flex;
+  flex-direction: column;
+}
 
 .answered-poll-card {
   width: 100%;

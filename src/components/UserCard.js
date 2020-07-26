@@ -10,16 +10,22 @@ class UserCard extends Component {
 
         return (
             <div className='user-card'>
-                <p>{this.props.id}</p>
                 <div className='avatar-container'>
-                <img className="avatar"
+                    <img className="avatar"
                         src={this.props.user.avatarURL}
                         alt="Random Avatar"
                     />
                 </div>
-                <p>Answered: {this.props.answeredKeys.length}</p>
-                <p>Created: {this.props.createdKeys.length}</p>
-                <p>Score: {score}</p>
+                <div className='user-info-container'>
+                    <h1>{this.props.user.name}</h1>
+                    <p>Answered: {this.props.answeredKeys.length}</p>
+                    <p>Created: {this.props.createdKeys.length}</p>
+                </div>
+                <div className='user-score-container'>
+                    <h3>Score</h3>
+                    <h3>{score}</h3>
+                </div>
+                
             </div>
         )
     }
