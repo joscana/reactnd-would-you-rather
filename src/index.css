@@ -209,7 +209,7 @@ li {
 
 
 .answered-poll-card {
-  width: 100%;
+  width: 90%;
   max-width: 590px;
   padding: 10px;
   display: flex;
@@ -237,10 +237,13 @@ li {
 .results-container {
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
 }
 
 .option-card {
-
+  margin-top: 10px;
+  background-color: #ffffff55;
+  padding: 10px;
 }
 
 .inner-bar {
@@ -249,9 +252,15 @@ li {
   float: left;
 }
 
-
 .outer-bar {
   background-color: #F0F0F0;
   height: 50px;
   width: 200px;
+  position: relative;
+}
+
+.percentage {
+  position: absolute;
+  width: 100%;
+  text-align: center;
 }

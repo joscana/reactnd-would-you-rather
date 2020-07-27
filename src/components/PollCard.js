@@ -53,13 +53,13 @@ class PollCard extends Component {
                         <h1>Results:</h1>
                         <div className='option-card'>
                             <p>{this.props.question.optionOne.text}</p>
-                            <p>{optionOneVotes} out of {total} votes</p>
                             <FillBar percentage={optionOneRatio} />
+                            <p>{optionOneVotes} out of {total} votes</p>
                         </div>
                         <div className='option-card'>
                             <p>{this.props.question.optionTwo.text}</p>
-                            <p>{optionTwoVotes} out of {total} votes </p>
                             <FillBar percentage={optionTwoRatio} />
+                            <p>{optionTwoVotes} out of {total} votes </p>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@ const FillBar = (props) => {
             <div className='inner-bar' ref={innerRef}>
 
             </div>
-            <p>{`${percentage * 100}%`}</p>
+            <p className="percentage">{`${percentage * 100}%`}</p>
         </div>
     )
 }
