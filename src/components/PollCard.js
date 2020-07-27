@@ -8,26 +8,26 @@ class PollCard extends Component {
     state = {}
 
     handleChange = (event) => {
-        this.setState({value: event.target.value});
+        this.setState({ value: event.target.value });
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if(!this.state.value) {
+        if (!this.state.value) {
             alert('Please select an answer to vote!');
             return;
         }
         console.log(this.state.value)
         this.props.dispatch(handleSaveAnswer(this.props.loggedInUser.id, this.props.question.id, this.state.value));
     }
-    
+
     render() {
         if (!this.props.loggedInUser) {
-            return (<Redirect to='/login'/>)
+            return (<Redirect to='/login' />)
         }
 
         if (!this.props.question) {
-            return (<Redirect to='/error'/>)
+            return (<Redirect to='/error' />)
         }
 
 
@@ -36,29 +36,31 @@ class PollCard extends Component {
 
         const total = optionOneVotes + optionTwoVotes;
 
-        const optionOneRatio = optionOneVotes/total;
-        const optionTwoRatio = optionTwoVotes/total;        
+        const optionOneRatio = optionOneVotes / total;
+        const optionTwoRatio = optionTwoVotes / total;
 
         const answeredView = (
-            <div className="answered-poll-card">
-                <div className='avatar-container'>
-                 <img className="avatar"
-                        src={this.props.author.avatarURL}
-                        alt="Random Avatar"
-                    />
-                </div>
-                <h3 className='center'>Asked by: {this.props.question.author}</h3>
-                <h1>Results:</h1>
-                <div className='results'>
-                    <div className='option-card'>
-                        <p>{this.props.question.optionOne.text}</p>
-                        <p>{optionOneVotes} out of {total} votes</p>
-                        <FillBar percentage={optionOneRatio} />
+            <div className="poll-card-container">
+                <h3>Asked by: {this.props.author.name}</h3>
+                <div className="answered-poll-card">
+                    <div className='avatar-container'>
+                        <img className="avatar"
+                            src={this.props.author.avatarURL}
+                            alt="Random Avatar"
+                        />
                     </div>
-                    <div className='option-card'>
-                        <p>{this.props.question.optionTwo.text}</p>
-                        <p>{optionTwoVotes} out of {total} votes </p>
-                        <FillBar percentage={optionTwoRatio} />
+                    <div className="results-container">
+                        <h1>Results:</h1>
+                        <div className='option-card'>
+                            <p>{this.props.question.optionOne.text}</p>
+                            <p>{optionOneVotes} out of {total} votes</p>
+                            <FillBar percentage={optionOneRatio} />
+                        </div>
+                        <div className='option-card'>
+                            <p>{this.props.question.optionTwo.text}</p>
+                            <p>{optionTwoVotes} out of {total} votes </p>
+                            <FillBar percentage={optionTwoRatio} />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,31 +68,24 @@ class PollCard extends Component {
 
         const unansweredView = (
             <div className='poll-card-container'>
-                <div className='user-avatar-column'>
-                    <h3 className='center'>{this.props.question.author} asks: </h3>
+                <h3>{this.props.author.name} asks: </h3>
+                <div className="unanswered-poll-card">
                     <img className="avatar"
                         src={this.props.author.avatarURL}
                         alt="Random Avatar"
                     />
-                </div>
-                <div className='question-button-column'>
-                    <p>Would You Rather...</p>
-                    <form className='question-button-column' onSubmit={this.handleSubmit} onChange={this.handleChange}>
-                        <input type='radio' id='optionOne' name='option' value='optionOne'></input>
-                        <label for='optionOne'>{this.props.question.optionOne.text}</label>
-                        <input type='radio' id='optionTwo' name='option' value='optionTwo'></input>
-                        <label for='optionTwo'>{this.props.question.optionTwo.text}</label>
-                        
-                            {/* <select onChange={this.handleChange}>
-                                <option value={null}>Select an answer</option>
-                                <option value='optionOne'>{this.props.question.optionOne.text}</option>
-                                <option value='optionTwo'>{this.props.question.optionTwo.text}</option>
-                            </select> */}
-                        
-                        <div className='button-container'>
-                            <input type="submit" value="Submit" className='submit-button' />
-                        </div>
-                    </form>
+                    <div className='question-button-column'>
+                        <p className="center">Would You Rather...</p>
+                        <form className='question-button-column' onSubmit={this.handleSubmit} onChange={this.handleChange}>
+                            <input type='radio' id='optionOne' name='option' value='optionOne'></input>
+                            <label for='optionOne'>{this.props.question.optionOne.text}</label>
+                            <input type='radio' id='optionTwo' name='option' value='optionTwo'></input>
+                            <label for='optionTwo'>{this.props.question.optionTwo.text}</label>
+                            <div className='button-container'>
+                                <input type="submit" value="Submit" className='submit-button' />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         );
@@ -106,18 +101,18 @@ const FillBar = (props) => {
     const outerRef = useRef();
     const innerRef = useRef();
 
-    useLayoutEffect ( () => {
+    useLayoutEffect(() => {
         const outerWidth = outerRef.current.offsetWidth;
         const innerWidth = outerWidth * percentage;
         innerRef.current.style.width = innerWidth + "px";
     }, [innerRef]);
 
-    return(
+    return (
         <div className='outer-bar' ref={outerRef}>
             <div className='inner-bar' ref={innerRef}>
-            
+
             </div>
-            <p>{`${percentage*100}%`}</p>
+            <p>{`${percentage * 100}%`}</p>
         </div>
     )
 }
@@ -130,8 +125,8 @@ function mapStateToProps(state, ownProps) {
     const author = (question) ? users[question.author] : null
     const answeredKeys = (loggedInUser) ? Object.keys(loggedInUser.answers) : []
     const answered = answeredKeys.includes(id)
-    return { 
-        question: question, 
+    return {
+        question: question,
         loggedInUser: loggedInUser,
         answered: answered,
         author: author
