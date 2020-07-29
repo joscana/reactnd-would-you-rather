@@ -211,6 +211,28 @@ li {
   padding: 10px;
 }
 
+
+.score {
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  padding: 10px;
+  background-color: #ffffff55;
+}
+
+.vote {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  padding: 10px;
+  background-color: #ff79ff;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+
 .poll-card-container {
   width: 90%;
   max-width: 590px;

@@ -23,7 +23,7 @@ class UserCard extends Component {
                 </div>
                 <div className='user-score-container'>
                     <h3 className='center'>Score</h3>
-                    <h3 className='center'>{score}</h3>
+                    <h3 className='center score'>{score}</h3>
                 </div>
                 
             </div>
