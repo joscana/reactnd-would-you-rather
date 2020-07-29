@@ -91,9 +91,7 @@ li {
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  
   border-radius: 3px;
-  cursor: pointer;
 }
 
 
@@ -105,7 +103,6 @@ li {
   justify-content: space-around;
   border: 3px solid #ffffff;
   border-radius: 3px;
-  cursor: pointer;
   background-color: #ffffff55;
 }
 
@@ -157,7 +154,6 @@ li {
   margin: 0 auto;
   border: 3px solid #ffffff;
   border-radius: 3px;
-  cursor: pointer;
   background-color: #ffffff55;
 }
 
@@ -177,7 +173,6 @@ li {
   margin: 0 auto;
   border: 3px solid #ffffff;
   border-radius: 3px;
-  cursor: pointer;
   background-color: #ffffff55;
 }
 
@@ -249,7 +244,6 @@ li {
   justify-content: space-around;
   border: 3px solid #ffffff;
   border-radius: 3px;
-  cursor: pointer;
   background-color: #ffffff55;
 }
 
@@ -266,7 +260,6 @@ li {
   flex-direction: row;
   margin: 0 auto;
   border-radius: 3px;
-  cursor: pointer;
 }
 
 
@@ -279,7 +272,6 @@ li {
   flex-direction: row;
   justify-content: space-between;
   border-radius: 3px;
-  cursor: pointer;
 }
 
 
@@ -291,7 +283,7 @@ li {
 
 
 .option-card {
-  height: 200px;
+  height: 150px;
   width: 250px;
   background-color: #ffffff55;
   border: 1px solid #ffffff;
