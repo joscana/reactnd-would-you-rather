@@ -40,8 +40,8 @@ class SignIn extends Component {
                         <label>
                             <select value={this.state.value} onChange={this.handleChange}>
                                 <option value={null}>Select a user</option>
-                                {this.props.users.map((id) => (
-                                <option value={id} key={id}>{id}</option>
+                                {this.props.userList.map((user) => (
+                                <option value={user.id} key={user.id}>{user.name}</option>
                                 ))}
                             </select>
                         </label>
@@ -55,8 +55,12 @@ class SignIn extends Component {
 
 function mapStateToProps(state) {
     const { users, authedUser } = state
+    const userList = Object.values(users)
+
     return { users: Object.keys(users),
-             authedUser: authedUser };
+             authedUser: authedUser,
+             userList: userList,            
+    };
 }
 
 export default connect(mapStateToProps)(SignIn)

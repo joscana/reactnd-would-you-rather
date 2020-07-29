@@ -20,7 +20,7 @@ class PollPreviewCard extends Component {
                 <div className='poll-preview-card-container'>
                     <div className='user-avatar-column'>
                         <div className='card-title-container'>
-                            <h3>{this.props.question.author} asks: </h3>
+                            <h3>{this.props.user.name} asks: </h3>
                         </div>
                         <div className='avatar-container'>
                             <img className="avatar"

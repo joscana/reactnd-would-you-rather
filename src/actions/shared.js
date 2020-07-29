@@ -1,7 +1,6 @@
 import { _getUsers, _getQuestions } from '../utils/_DATA'
 import { receiveUsers } from '../actions/users'
 import { receiveQuestions } from '../actions/questions'
-import { setAuthedUser } from '../actions/authedUser'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
 

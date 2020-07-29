@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 export default function Nav(props) {
 
-    const links = (props.authedUser) ? (
+    const links = (props.username) ? (
         <ul>
             <li>
                 <NavLink to='/' exact activeClassName='active'>
@@ -21,7 +21,7 @@ export default function Nav(props) {
                     </NavLink>
             </li>
             <li>
-                Hello, {props.authedUser}
+                Hello, {props.username}
             </li>
             <li>
                 <NavLink to='/logout' activeClassName='active'>

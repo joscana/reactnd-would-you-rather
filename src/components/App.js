@@ -23,7 +23,7 @@ class App extends Component {
         <Router>
           <Fragment>
             <LoadingBar />
-            <Nav authedUser={this.props.authedUser} />
+            <Nav username={(this.props.user) ? this.props.user.name : null} />
               <Switch>
                 <Route path='/' exact component={Home}  />
                 <Route path='/add' component={NewQuestion} />
@@ -40,11 +40,13 @@ class App extends Component {
   }
 }
 
-function mapStateToProps ({ authedUser }) {
-  console.log(authedUser);
+function mapStateToProps (state) {
+  const { authedUser, users } = state
+  const user = users[authedUser]
   return {
-    authedUser: authedUser
-  }
+    authedUser: authedUser,
+    user: user,
+  };
 }
 
 export default connect(mapStateToProps)(App);
