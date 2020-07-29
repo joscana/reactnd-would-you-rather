@@ -77,10 +77,14 @@ class PollCard extends Component {
                     <div className='question-button-column'>
                         <p className="center">Would You Rather...</p>
                         <form className='question-button-column' onSubmit={this.handleSubmit} onChange={this.handleChange}>
-                            <input type='radio' id='optionOne' name='option' value='optionOne'></input>
-                            <label for='optionOne'>{this.props.question.optionOne.text}</label>
-                            <input type='radio' id='optionTwo' name='option' value='optionTwo'></input>
-                            <label for='optionTwo'>{this.props.question.optionTwo.text}</label>
+                            <label>
+                                <input type='radio' id='optionOne' name='option' value='optionOne'/>
+                                {this.props.question.optionOne.text}
+                            </label>
+                            <label>
+                                <input type='radio' id='optionTwo' name='option' value='optionTwo'/>
+                                {this.props.question.optionTwo.text}
+                            </label>
                             <div className='button-container'>
                                 <input type="submit" value="Submit" className='submit-button' />
                             </div>
@@ -105,7 +109,7 @@ const FillBar = (props) => {
         const outerWidth = outerRef.current.offsetWidth;
         const innerWidth = outerWidth * percentage;
         innerRef.current.style.width = innerWidth + "px";
-    }, [innerRef]);
+    });
 
     return (
         <div className='outer-bar' ref={outerRef}>

@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 class SignIn extends Component {
     constructor(props) {
         super(props);
-        this.state = {value: null};
+        this.state = {value: undefined};
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,7 +18,7 @@ class SignIn extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        if(this.state.value === null) {
+        if(!this.state.value) {
             alert('Please select a user to sign in!');
             return;
         }
@@ -39,7 +39,7 @@ class SignIn extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             <select value={this.state.value} onChange={this.handleChange}>
-                                <option value={null}>Select a user</option>
+                                <option value={undefined}>Select a user</option>
                                 {this.props.userList.map((user) => (
                                 <option value={user.id} key={user.id}>{user.name}</option>
                                 ))}
