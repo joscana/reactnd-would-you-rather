@@ -22,8 +22,8 @@ class UserCard extends Component {
                     <p>Created: {this.props.createdKeys.length}</p>
                 </div>
                 <div className='user-score-container'>
-                    <h3>Score</h3>
-                    <h3>{score}</h3>
+                    <h3 className='center'>Score</h3>
+                    <h3 className='center'>{score}</h3>
                 </div>
                 
             </div>

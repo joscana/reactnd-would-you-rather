@@ -36,8 +36,8 @@ class PollCard extends Component {
 
         const total = optionOneVotes + optionTwoVotes;
 
-        const optionOneRatio = optionOneVotes / total;
-        const optionTwoRatio = optionTwoVotes / total;
+        const optionOneRatio = (optionOneVotes / total).toFixed(2);
+        const optionTwoRatio = (optionTwoVotes / total).toFixed(2);
 
         const answeredView = (
             <div className="poll-card-container">

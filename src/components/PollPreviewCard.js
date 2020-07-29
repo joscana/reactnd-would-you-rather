@@ -31,10 +31,10 @@ class PollPreviewCard extends Component {
                     </div>
                     <div className='preview-button-column'>
                         <div className="question-preview-container">
-                            <h3>Would you rather</h3>
-                            <p>{this.props.question.optionOne.text}</p>
-                            <p>or</p>
-                            <p>{this.props.question.optionTwo.text}</p>
+                            <h3 className='center'>Would you rather...</h3>
+                            <p className='center'>{this.props.question.optionOne.text}</p>
+                            <p className='center'>or</p>
+                            <p className='center'>{this.props.question.optionTwo.text}</p>
                         </div>
                         <button type="button" className='button' onClick={this.handleSubmit}>View Poll</button>
                     </div>

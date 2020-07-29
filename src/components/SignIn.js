@@ -31,11 +31,11 @@ class SignIn extends Component {
             <div className='signin-container'>
                  { redirectToHome }
                 <div className='welcome'>
-                <h2>Welcome to the Would You Rather App!</h2>
-                <h4>Please sign in to continue.</h4> 
+                <h2 className='center'>Welcome to the Would You Rather App!</h2>
+                <h4 className='center'>Please sign in to continue.</h4> 
                 </div>
                 <div className='signin-form'>
-                    <h1>Sign In</h1>
+                    <h1 className='center'>Sign In</h1>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             <select value={this.state.value} onChange={this.handleChange}>
@@ -45,7 +45,9 @@ class SignIn extends Component {
                                 ))}
                             </select>
                         </label>
-                        <input type="submit" value="Submit" className='button' />
+                        <div className='button-container'>
+                            <input type="submit" value="Submit" className='submit-button' />
+                        </div>
                     </form>
                 </div>
             </div>
