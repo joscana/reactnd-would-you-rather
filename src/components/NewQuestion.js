@@ -37,10 +37,10 @@ class NewQuestion extends Component {
                 { redirectToLogin }
                 { redirectToHome }
                 <div className="new-question-form">
-                    <h3 className='center'>Create New Question</h3>
+                    <h1 className='center'>Create New Question</h1>
                     <form onSubmit={this.handleSubmit}>
                         <label>
-                            Complete the question:
+                            <p>Complete the question:</p>
                             <p>Would You Rather...</p>
                             <input type="text" name='option-1' placeholder="Enter Option One Text Here" onChange={this.optionOneChange}/>
                             <p className='center'>OR</p>

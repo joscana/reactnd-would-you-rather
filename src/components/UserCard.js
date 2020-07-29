@@ -17,7 +17,7 @@ class UserCard extends Component {
                     />
                 </div>
                 <div className='user-info-container'>
-                    <h1>{this.props.user.name}</h1>
+                    <h2>{this.props.user.name}</h2>
                     <p>Answered: {this.props.answeredKeys.length}</p>
                     <p>Created: {this.props.createdKeys.length}</p>
                 </div>

@@ -58,18 +58,22 @@ class PollCard extends Component {
                         />
                     </div>
                     <div className="results-container">
-                        <h1>Results:</h1>
-                        <div className='option-card'>
+                        <h2>Results:</h2>
+                        <div className='option-card-container'>
                             {optionOneYourVote}
-                            <p>{this.props.question.optionOne.text}</p>
-                            <FillBar percentage={optionOneRatio} />
-                            <p>{optionOneVotes} out of {total} votes</p>
+                            <div className='option-card'>
+                                <p>{this.props.question.optionOne.text}</p>
+                                <FillBar percentage={optionOneRatio} />
+                                <p>{optionOneVotes} out of {total} votes</p>
+                            </div>
                         </div>
-                        <div className='option-card'>
+                        <div className='option-card-container'>
                             {optionTwoYourVote}
-                            <p>{this.props.question.optionTwo.text}</p>
-                            <FillBar percentage={optionTwoRatio} />
-                            <p>{optionTwoVotes} out of {total} votes </p>
+                            <div className='option-card'>
+                                <p>{this.props.question.optionTwo.text}</p>
+                                <FillBar percentage={optionTwoRatio} />
+                                <p>{optionTwoVotes} out of {total} votes </p>
+                            </div>
                         </div>
                     </div>
                 </div>

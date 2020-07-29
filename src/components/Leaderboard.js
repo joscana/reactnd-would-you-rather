@@ -9,7 +9,7 @@ class Leaderboard extends Component {
         return (
             <div>
                 { redirectToLogin }
-                <h3 className='center'>Leaderboard</h3>
+                <h1 className='center'>Leaderboard</h1>
                 <div className='leaderboard'>
                     <ul className='leaderboard-list'>
                         {this.props.userList.map((user) => (

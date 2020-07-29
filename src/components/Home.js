@@ -33,8 +33,8 @@ class Home extends Component {
                 { redirectToLogin }
                 <div className='questions-container'>
                     <div className='buttons-container'>
-                        <button type="button" className="center-button" onClick={this.showUnansweredQuestions}>Unanswered</button>
-                        <button type="button" className="center-button" onClick={this.showAnsweredQuestions}>Answered</button>
+                        <button type="button" className="button" onClick={this.showUnansweredQuestions}>Unanswered</button>
+                        <button type="button" className="button" onClick={this.showAnsweredQuestions}>Answered</button>
                     </div>
                     <ul className='questions-list'>
                         {questionstoShow.map((id) => (

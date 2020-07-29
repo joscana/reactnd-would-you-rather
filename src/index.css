@@ -42,27 +42,28 @@ li {
 
 .button {
   height: 50px;
-  width: 100px;
+  width: 120px;
   background-color: #e040fb;
-  border: none;
+  border: 1px solid #ffffff;
   color: whitesmoke;
-  padding: 10px 32px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   align-self: center;
 }
 
+
 .submit-button {
   height: 50px;
   width: 100px;
   background-color: #e040fb;
-  border: none;
+  border: 1px solid #ffffff;
   color: whitesmoke;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
 }
+
 
 .button-container {
   padding: 10px;
@@ -79,10 +80,8 @@ li {
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  border: 3px solid #ffffff;
-  border-radius: 3px;
-  cursor: pointer;
 }
+
 
 .leaderboard {
   width: 100%;
@@ -92,7 +91,7 @@ li {
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  border: 3px solid #ffffff;
+  
   border-radius: 3px;
   cursor: pointer;
 }
@@ -110,13 +109,16 @@ li {
   background-color: #ffffff55;
 }
 
+
 .card-title-container {
   width: 100%;
 }
 
+
 .question-preview-container {
   padding: 10px;
 }
+
 
 .user-avatar-column {
   display: flex;
@@ -128,6 +130,7 @@ li {
   display: flex;
   flex-direction: column;
 }
+
 
 .question-button-column {
   display: flex;
@@ -164,11 +167,6 @@ li {
 }
 
 
-.center-button {
-  align-self: flex-start;
-}
-
-
 .new-question-form {
   width: 100%;
   max-width: 590px;
@@ -196,12 +194,14 @@ li {
   background-color: #ffffff55;
 }
 
+
 .user-info-container {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   padding-left: 20px;
 }
+
 
 .user-score-container {
   display: flex;
@@ -219,24 +219,30 @@ li {
   background-color: #ffffff55;
 }
 
+
 .vote {
   display: flex;
-  height: 50px;
-  width: 50px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
   border: 1px solid #ffffff;
   padding: 10px;
+  margin: 0;
   background-color: #ff79ff;
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  font-size: small;
+  position: relative;
+  top: 25px;
+  left: -25px;
 }
 
 
 .poll-card-container {
   width: 90%;
   max-width: 590px;
-  padding: 5px;
+  padding: 10px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -247,6 +253,10 @@ li {
   background-color: #ffffff55;
 }
 
+.option-card-container {
+  margin: 10px;
+  position: relative;
+}
 
 .answered-poll-card {
   width: 90%;
@@ -258,6 +268,7 @@ li {
   border-radius: 3px;
   cursor: pointer;
 }
+
 
 .unanswered-poll-card {
   width: 90%;
@@ -271,34 +282,42 @@ li {
   cursor: pointer;
 }
 
+
 .results-container {
   display: flex;
   flex-direction: column;
   padding-left: 20px;
 }
 
+
 .option-card {
-  margin-top: 10px;
+  height: 200px;
+  width: 250px;
   background-color: #ffffff55;
   border: 1px solid #ffffff;
-  padding: 10px;
+  border-radius: 25px;
+  padding: 15px;
 }
 
+
 .inner-bar {
-  background-color: #ff00ff;
+  background-color: #e040fb;
   height: 100%;
   float: left;
 }
 
+
 .outer-bar {
-  background-color: #f0f0f0;
+  background-color: #ffffff55;
   height: 50px;
   width: 200px;
   position: relative;
 }
 
+
 .percentage {
   position: absolute;
   width: 100%;
   text-align: center;
+  font-weight: bold;
 }
