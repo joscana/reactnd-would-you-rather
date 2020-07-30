@@ -5,3 +5,7 @@ This project is a web app that lets a user play the "Would You Rather?" game. Us
 ## Project Details
 
 This project was created using create-react-app and uses Redux to manage state.
+
+### Installation
+
+From the root directory of the project, run "npm install" to install dependencies and run "npm start" to start the application

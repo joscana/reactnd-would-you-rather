@@ -247,10 +247,12 @@ li {
   background-color: #ffffff55;
 }
 
+
 .option-card-container {
   margin: 10px;
   position: relative;
 }
+
 
 .answered-poll-card {
   width: 90%;
