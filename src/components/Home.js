@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PollPreviewCard from './PollPreviewCard';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import withAuth from './withAuth';
 
 
