@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { handleAddQuestion } from '../actions/questions'
+import withAuth from './withAuth';
 
 
 class NewQuestion extends Component {
@@ -29,12 +30,10 @@ class NewQuestion extends Component {
     }
 
     render() {
-        const redirectToLogin =  (this.props.authedUser === null) ? <Redirect to='/login'/> : null
         const redirectToHome =  (this.state.saved) ? <Redirect to='/'/> : null
 
         return (
             <div>
-                { redirectToLogin }
                 { redirectToHome }
                 <div className="new-question-form">
                     <h1 className='center'>Create New Question</h1>
@@ -61,4 +60,4 @@ function mapStateToProps(state) {
     return { authedUser: authedUser };
 }
 
-export default connect(mapStateToProps)(NewQuestion);
+export default withAuth(connect(mapStateToProps)(NewQuestion));

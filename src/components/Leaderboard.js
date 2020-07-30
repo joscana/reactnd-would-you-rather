@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom'
 import UserCard from './UserCard'
+import withAuth from './withAuth';
 
 class Leaderboard extends Component {
     render() {
-        const redirectToLogin =  (this.props.authedUser === null) ? <Redirect to='/login'/> : null
         return (
             <div>
-                { redirectToLogin }
                 <h1 className='center'>Leaderboard</h1>
                 <div className='leaderboard'>
                     <ul className='leaderboard-list'>
@@ -42,4 +40,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(Leaderboard);
+export default withAuth(connect(mapStateToProps)(Leaderboard));

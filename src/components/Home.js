@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PollPreviewCard from './PollPreviewCard';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import withAuth from './withAuth';
 
 
 class Home extends Component {
@@ -25,12 +26,10 @@ class Home extends Component {
 
     render() {
         
-        const redirectToLogin =  (this.props.authedUser === null) ? <Redirect to='/login'/> : null
         const questionstoShow = (this.state.showUnanswered) ? this.props.unanswered : this.props.answered;
         
         return (
             <div>
-                { redirectToLogin }
                 <div className='questions-container'>
                     <div className='buttons-container'>
                         <button type="button" className="button" onClick={this.showUnansweredQuestions}>Unanswered</button>
@@ -81,4 +80,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(Home);
+export default withAuth(connect(mapStateToProps)(Home));

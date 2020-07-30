@@ -2,6 +2,7 @@ import React, { Component, useRef, useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import { handleSaveAnswer } from '../actions/questions';
 import { Redirect } from 'react-router-dom';
+import withAuth from './withAuth';
 
 class PollCard extends Component {
 
@@ -22,14 +23,10 @@ class PollCard extends Component {
     }
 
     render() {
-        if (!this.props.loggedInUser) {
-            return (<Redirect to='/login' />)
-        }
-
+        
         if (!this.props.question) {
             return (<Redirect to='/error' />)
         }
-
 
         const optionOneVotes = this.props.question.optionOne.votes.length;
         const optionTwoVotes = this.props.question.optionTwo.votes.length;
@@ -151,4 +148,4 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
-export default connect(mapStateToProps)(PollCard)
+export default withAuth(connect(mapStateToProps)(PollCard))
